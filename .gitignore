@@ -1,0 +1,6 @@
+.vscode
+repository/*
+.todo
+*.swp
+*/*.swp
+.DS_Store

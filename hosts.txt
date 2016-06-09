@@ -1,0 +1,2 @@
+# List of hosts to push content to.
+# See README.md for syntax
