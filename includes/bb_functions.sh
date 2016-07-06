@@ -382,7 +382,7 @@ post::generate() {
     local latest_content_checksum="$( openssl md5 "${this_local_dir}/content" | awk '{ print $2 }' )"
 
     local this_template_header="${template_header//__SUBTITLE__/${this_title}}"
-echo "                  $this_template_header"
+    
     # Test if content is updated. If it is, update the checksum and update date
     if [ "${latest_content_checksum}" != "${this_checksum}" ]; then
       local date_now="$( date )"
