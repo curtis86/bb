@@ -147,7 +147,6 @@ post::create() {
   echo "unpublished" > "${post_dir}/status"
   echo "${this_post_url}" > "${post_dir}/url"
 
-  # CHECK - maybe remove interactivity before release?
   bp::msg ""
   if bp::yesno "New post created. Edit content file now?"; then
     $TEXT_EDITOR "${post_dir}/content"
@@ -380,10 +379,10 @@ post::generate() {
     local this_url="$( cat "${this_local_dir}/url" )"
     local this_title="$( cat "${this_local_dir}/title" )"
     local this_checksum="$( cat "${this_local_dir}/checksum" )"
-    local latest_content_checksum="$( openssl md5 "${this_local_dir}/content" )"
+    local latest_content_checksum="$( openssl md5 "${this_local_dir}/content" | awk '{ print $2 }' )"
 
-    local template_header="${template_header//__SUBTITLE__/${this_title}}"
-
+    local this_template_header="${template_header//__SUBTITLE__/${this_title}}"
+echo "                  $this_template_header"
     # Test if content is updated. If it is, update the checksum and update date
     if [ "${latest_content_checksum}" != "${this_checksum}" ]; then
       local date_now="$( date )"
@@ -399,7 +398,7 @@ post::generate() {
     mkdir "${this_public_dir}" || bp::abrt "Unable to create post directory ${this_public_dir}"
     touch "${this_index_file}"
 
-    echo "${template_header}" > "${this_index_file}"
+    echo "${this_template_header}" > "${this_index_file}"
     echo "${template_menu}" >> "${this_index_file}"
 
     echo "# ${this_title}" >> "${this_index_file}"
