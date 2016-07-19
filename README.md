@@ -72,7 +72,9 @@ Creating new post...
 Title: This is my first post
 ID: 0
 
-New post created. Edit content file now? <y/n> y
+New post created. To create content for this post, edit: /opt/bb/repository/local/0/content
+
+# ./bb edit 0
 
 # ./bb set 0 publish
 
