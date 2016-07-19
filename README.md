@@ -2,7 +2,7 @@
 
 ## A. Summary
 
-**bb**, or "Bash Blog", is a lightning-fast, flat-file blog publishing platform. It uses markdown syntax for super-easy content authoring, and StrapdownJS to make it look pretty!
+**bb**, or "Bash Blog", is a lightning-fast, secure, flat-file blog publishing platform. It uses markdown syntax for super-easy content authoring, and StrapdownJS to make it look pretty!
 
 Forget about painful file and database replication: **bb** can publish content both locally and remotely, right out of the box!
 
@@ -126,14 +126,7 @@ Are you sure you want to delete post ID 0 ? <y/n> y
 
 ## TODO
 
-A few todo's I have in mind are...
-
- * Optimise content generation functions
- * Add category and tag support
- * Pagination
- * Search function
- * A `--force` flag, so that **bb** operations can be automated, ie. auto-posting system outage status, new update info etc. 
-
+See [bb Issues](https://github.com/curtis86/bb/issues)
 
 ## Disclaimer
 
