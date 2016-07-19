@@ -129,7 +129,7 @@ post::create() {
   local this_post_url="$( generate_friendly_url "${post_title}" )"
 
   if url_exists "${this_post_url}" ; then
-    bp::abrt "Post with this URL \"${t_bold}${this_post_url}${t_normal}\" already exists. Try add -page1 -page2 if this is intentional"
+    bp::abrt "Post with this URL \"${t_bold}${this_post_url}${t_normal}\" already exists. Try add -page2 -page3 etc if this is intentional"
   fi
 
   bp::msg ""
@@ -148,12 +148,9 @@ post::create() {
   echo "${this_post_url}" > "${post_dir}/url"
 
   bp::msg ""
-  if bp::yesno "New post created. Edit content file now?"; then
-    $TEXT_EDITOR "${post_dir}/content"
-  else
-    bp::msg ""
-    bp::msg "You can update the content of this post by editing ${post_dir}/content"
-  fi
+  bp::msg "New post created. To create content for this post, edit: ${post_dir}/content"
+  bp::msg ""
+  
 }
 
 # Lists all posts
@@ -402,7 +399,7 @@ post::generate() {
     echo "${template_menu}" >> "${this_index_file}"
 
     echo "# ${this_title}" >> "${this_index_file}"
-    echo "*by* ${this_author}. *Last updated* ${this_last_updated}" >> "${this_index_file}"
+    echo "**By:** ${this_author}. **Last updated:** ${this_last_updated}" >> "${this_index_file}"
     echo "" >> "${this_index_file}"
     echo "${this_content}" >> "${this_index_file}"
 
