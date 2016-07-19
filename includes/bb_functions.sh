@@ -355,7 +355,7 @@ post::generate() {
 
   local template_menu="$( cat "${TEMPLATES_DIR}/2-menu" )"
 
-  local template_footer="$( cat "${TEMPLATES_DIR}/3-footer" )"
+  local template_footer="$( cat "${TEMPLATES_DIR}/3-footer-post" )"
 
 
   local posts=( $( ls "${LOCAL_DIR}/" | sort -n ) )
@@ -436,7 +436,7 @@ post::generate_index() {
 
   local template_menu="$( cat "${TEMPLATES_DIR}/2-menu" )"
 
-  local template_footer="$( cat "${TEMPLATES_DIR}/3-footer" )"
+  local template_footer="$( cat "${TEMPLATES_DIR}/3-footer-index" )"
 
   touch "${PUBLIC_INDEX_FILE}"
 
@@ -476,6 +476,8 @@ post::generate_index() {
   done
 
   echo "${template_footer}" >> "${PUBLIC_INDEX_FILE}"
+
+  cp -R "${ASSETS_DIR}" "${PUBLIC_DIR}"
 
   bp::msg ""
 

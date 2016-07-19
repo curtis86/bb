@@ -10,6 +10,7 @@ readonly PUBLIC_DIR="${REPOSITORY_DIR}/public"
 readonly PUBLIC_POSTS_DIR="${PUBLIC_DIR}/posts"
 readonly PUBLIC_POSTS_SHARED_ASSETS_DIR="${PUBLIC_POSTS_DIR}/assets"
 readonly PUBLIC_INDEX_FILE="${PUBLIC_DIR}/index.html"
+readonly ASSETS_DIR="${REPOSITORY_DIR}/assets"
 
 # POST CONSTANTS
 readonly MIN_TITLE_LENGTH=3
