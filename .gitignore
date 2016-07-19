@@ -1,6 +1,6 @@
 .vscode
-repository/public/*
-repostiroy/local/*
+repository/public
+repository/local
 .todo
 *.swp
 */*.swp
