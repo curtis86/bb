@@ -10,7 +10,7 @@ Editing is simply done in a "local" repository, while "public" content is genera
 
 The flow for creating a new post is as follows:
 
-`New post -> Edit content -> Set post status to 'publish' -> Generate content -> Push`
+`New post -> Edit {content,tags,categories} -> Set post status to 'publish' -> Generate content -> Push`
 
 To get started using markdown, see: [1](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [2](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md) - you can even use this very `README.md` as a markdown example!
 

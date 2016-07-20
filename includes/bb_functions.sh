@@ -376,6 +376,8 @@ post::generate() {
     local this_url="$( cat "${this_local_dir}/url" )"
     local this_title="$( cat "${this_local_dir}/title" )"
     local this_checksum="$( cat "${this_local_dir}/checksum" )"
+    local this_tags="$( cat "${this_local_dir}/tags" )"
+    local this_categories="$( cat "${this_local_dir}/categories" )"
     local latest_content_checksum="$( openssl md5 "${this_local_dir}/content" | awk '{ print $2 }' )"
 
     local this_template_header="${template_header//__SUBTITLE__/${this_title}}"
@@ -401,7 +403,25 @@ post::generate() {
     echo "# ${this_title}" >> "${this_index_file}"
     echo "**By:** ${this_author}. **Last updated:** ${this_last_updated}" >> "${this_index_file}"
     echo "" >> "${this_index_file}"
+
+    if [ ${#this_categories} -gt 0 ]; then
+
+      local this_categories_sorted="$( echo "${this_categories}" | sort -n | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
+
+      echo "**Posted in:** ${this_categories_sorted}" >> "${this_index_file}"
+    fi
+
+    echo "" >> "${this_index_file}"
+
     echo "${this_content}" >> "${this_index_file}"
+
+    if [ ${#this_tags} -gt 0 ]; then
+
+      local this_tags_sorted="$( echo "${this_tags}" | sort -n | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
+
+      echo "#### Tags" >> "${this_index_file}"
+      echo "${this_tags_sorted}" >> "${this_index_file}"
+    fi
 
     echo "${template_footer}" >> "${this_index_file}"
 
