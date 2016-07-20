@@ -350,7 +350,7 @@ post::generate() {
   local template_header="${template_header//__BLOGTITLE__/${BLOG_TITLE}}"
   local template_header="${template_header//__BLOGTHEME__/${BLOG_THEME}}"
 
-  local template_menu="$( cat "${TEMPLATES_DIR}/2-menu" )"
+  local template_menu="$( cat "${TEMPLATES_DIR}/2-menu-post" )"
 
   local template_footer="$( cat "${TEMPLATES_DIR}/3-footer-post" )"
 
@@ -431,7 +431,7 @@ post::generate_index() {
   local template_header="${template_header//__BLOGTHEME__/${BLOG_THEME}}"
   local template_header="${template_header//__SUBTITLE__/${BLOG_SUBTITLE}}"
 
-  local template_menu="$( cat "${TEMPLATES_DIR}/2-menu" )"
+  local template_menu="$( cat "${TEMPLATES_DIR}/2-menu-index" )"
 
   local template_footer="$( cat "${TEMPLATES_DIR}/3-footer-index" )"
 
