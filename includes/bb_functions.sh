@@ -406,7 +406,7 @@ post::generate() {
 
     if [ ${#this_categories} -gt 0 ]; then
 
-      local this_categories_sorted="$( echo "${this_categories}" | sort -n | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
+      local this_categories_sorted="$( echo "${this_categories}" | sort | uniq | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
 
       echo "**Posted in:** ${this_categories_sorted}" >> "${this_index_file}"
     fi
@@ -417,7 +417,7 @@ post::generate() {
 
     if [ ${#this_tags} -gt 0 ]; then
 
-      local this_tags_sorted="$( echo "${this_tags}" | sort -n | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
+      local this_tags_sorted="$( echo "${this_tags}" | sort | uniq | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
 
       echo "#### Tags" >> "${this_index_file}"
       echo "${this_tags_sorted}" >> "${this_index_file}"
