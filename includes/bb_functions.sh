@@ -341,6 +341,26 @@ post::generate() {
   bp::msg "${t_bold}Generating posts...${t_normal}"
   bp::msg ""
 
+  # Initiate sitemap, if enabled
+  if [ ${ENABLE_SITEMAP} -eq 0 ]; then
+    set -u
+
+    touch "${SITEMAP_FILE}"
+    echo '<?xml version="1.0" encoding="UTF-8"?>' > "${SITEMAP_FILE}"
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "${SITEMAP_FILE}"
+
+    # Check that last character of blog URL is a "/"
+    local blog_sitemap_len="${#SITEMAP_BLOG_URL}"
+    local blog_sitemap_len_less=$((blog_sitemap_len - 1))
+    local blog_sitemap_lastchar="${SITEMAP_BLOG_URL:${blog_sitemap_len_less}:${blog_sitemap_len}}"
+    [ "${blog_sitemap_lastchar}" != "/" ] && "${SITEMAP_BLOG_URL}/"
+
+  elif [ ${ENABLE_SITEMAP} -eq 1 ]; then
+    # Assume we don't want sitemap at all, and delete it if it exists
+    set -u
+    [ -f "${SITEMAP_FILE}" ] && rm "${SITEMAP_FILE}"
+  fi
+
   # Clear out existing public posts directory
   set -u
   rm -rf "${PUBLIC_POSTS_DIR}" && mkdir "${PUBLIC_POSTS_DIR}"
@@ -427,7 +447,20 @@ post::generate() {
 
     [ -d "${this_local_dir}/assets" ] && cp -R "${this_local_dir}/assets" "${this_public_dir}"
 
+
+    # Populate sitemap entry
+    if [ ${ENABLE_SITEMAP} -eq 0 ]; then
+      echo '  <url>' >> "${SITEMAP_FILE}"
+      echo "    <loc>${SITEMAP_BLOG_URL}posts/${this_url}</loc>" >> "${SITEMAP_FILE}"
+      echo '  </url>' >> "${SITEMAP_FILE}"
+    fi
+
   done
+
+  # Close sitemap tag
+  if [ ${ENABLE_SITEMAP} -eq 0 ]; then
+    echo '</urlset>' >> "${SITEMAP_FILE}"
+  fi
 
   bp::msg ""
 

@@ -23,3 +23,6 @@ readonly TEMPLATES_DIR="${HOME_DIR}/templates"
 # PUSH CONSTANTS
 readonly PUSH_HOSTS_FILE="${HOME_DIR}/hosts.txt"
 readonly RSYNC_TIMEOUT=30
+
+# SITEMAP
+readonly SITEMAP_FILE="${PUBLIC_DIR}/sitemap.xml"
