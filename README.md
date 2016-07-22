@@ -19,13 +19,21 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 ## B. Features
 
 &#x2713; Flat file
+
 &#x2713; Markdown syntax
+
 &#x2713; Compatible with macOS (OS X) and Linux system
+
 &#x2713; Low-dependency (system default in many cases)
+
 &#x2713; Secure - no server-side dynamic code
+
 &#x2713; Web-server agnostic
+
 &#x2713; Push-to-many-host publishing
+
 &#x2713; Sitemap support
+
 
 ## C. Dependencies
 
