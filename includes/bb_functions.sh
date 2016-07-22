@@ -21,6 +21,8 @@ bb::setup() {
   [ ! -d "${LOCAL_DIR}" ] && mkdir "${LOCAL_DIR}"
   [ ! -d "${PUBLIC_DIR}" ] && mkdir "${PUBLIC_DIR}"
   [ ! -d "${PUBLIC_POSTS_DIR}" ] && mkdir "${PUBLIC_POSTS_DIR}"
+
+  [ ! -f "${HOME_DIR}/bb.conf" ] && bp::abrt "Please copy ${t_bold}bb.conf-setup${t_normal} to ${t_bold}bb.conf${t_normal} before running"
 }
 
 # Tests that exact args are met
@@ -121,8 +123,6 @@ post::create() {
   [ ${#post_title} -eq 0 ] && bp::abrt "Please enter a post title"
 
   [ ${#post_title} -le ${MIN_TITLE_LENGTH} ] && bp::abrt "Post title needs to be longer than ${MIN_TITLE_LENGTH} characters"
-
-
 
   local post_id="$( new_index )"
   local post_dir="${LOCAL_DIR}/${post_id}"
@@ -500,7 +500,7 @@ post::generate_index() {
     local this_status="$( cat "${this_local_dir}/status" )"
  
     # If post status is not published, skip
-    [ "${this_status}" != "publish" ] && { echo ; echo "Skipping post ID ${post} as it is not in the 'publish' state!" ; continue ;}
+    [ "${this_status}" != "publish" ] && continue
 
     local this_content="$( head -n5 "${this_local_dir}/content" | grep -v "^#" )"
 

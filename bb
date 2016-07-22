@@ -14,7 +14,6 @@ readonly INCLUDES_DIR="${HOME_DIR}/includes"
 source "${INCLUDES_DIR}/bp.sh"
 source "${INCLUDES_DIR}/bb_vars.sh"
 source "${INCLUDES_DIR}/bb_functions.sh"
-source "${HOME_DIR}/bb.conf"
 
 # MAIN
 main() {
@@ -22,7 +21,10 @@ main() {
   [ $# -lt 1 ] && { usage; exit 1 ;}
 
   bp::check_dependencies
+
   bb::setup
+  
+  source "${HOME_DIR}/bb.conf"
 
   # Seperate option and parameters
   OPT="$1" ; shift

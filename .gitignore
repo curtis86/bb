@@ -5,3 +5,4 @@ repository/local
 *.swp
 */*.swp
 .DS_Store
+bb.conf

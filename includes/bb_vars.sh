@@ -3,6 +3,7 @@ readonly PROJECT_NAME="bb"
 readonly PROGNAME="$( basename $0 )"
 readonly LOG_FILE=""
 readonly SCRIPT_DEPENDENCIES=( "ssh" "openssl" "rsync" )
+readonly _BB_CONFIG_TRACKED_VERSION=5
 
 readonly REPOSITORY_DIR="${HOME_DIR}/repository"
 readonly LOCAL_DIR="${REPOSITORY_DIR}/local"

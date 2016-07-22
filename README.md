@@ -14,6 +14,8 @@ The flow for creating a new post is as follows:
 
 To get started using markdown, see: [1](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [2](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md) - you can even use this very `README.md` as a markdown example!
 
+Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed instructions. 
+
 ## B. Dependencies
 
  * rsync
@@ -29,6 +31,10 @@ Tested on BASH 3.2 (OS X) and BASH 4.1.2 on CentOS Linux.
  * Clone this repo to your preferred directory (eg: `/opt/bb`)
 
 `git clone https://github.com/curtis86/bb`
+
+ * Move the included setup configuration to a live version:
+
+ ` mv bb.conf-setup bb.conf`
 
  * Update your `bb.conf` file to define your blog name, subtitle, etc
 
