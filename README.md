@@ -6,14 +6,6 @@
 
 Forget about painful file and database replication: **bb** can publish content both locally and remotely, right out of the box!
 
-Editing is simply done in a "local" repository, while "public" content is generated from the local repository and then pushed to content hosts.
-
-The flow for creating a new post is as follows:
-
-`New post -> Edit {content,tags,categories} -> Set post status to 'publish' -> Generate content -> Push`
-
-To get started using markdown, see: [1](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [2](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md) - you can even use this very `README.md` as a markdown example!
-
 Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed instructions. 
 
 ## B. Features
@@ -22,7 +14,7 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 
 &#x2713; Markdown syntax
 
-&#x2713; Compatible with macOS (OS X) and Linux system
+&#x2713; Compatible with macOS (OS X) and Linux systems
 
 &#x2713; Low-dependency (system default in many cases)
 
@@ -53,7 +45,7 @@ Tested on BASH 3.2 (OS X) and BASH 4.1.2 on CentOS Linux.
 
  * Move the included setup configuration to a live version:
 
- ` mv bb.conf-setup bb.conf`
+` mv bb.conf-setup bb.conf`
 
  * Update your `bb.conf` file to define your blog name, subtitle, etc
 
