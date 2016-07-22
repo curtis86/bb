@@ -502,12 +502,13 @@ post::generate_index() {
     # If post status is not published, skip
     [ "${this_status}" != "publish" ] && continue
 
-    local this_content="$( head -n5 "${this_local_dir}/content" | grep -v "^#" )"
-
-    local this_content="$( head -n5 "${this_local_dir}/content" )"
+    local this_content_all="$( head -n5 "${this_local_dir}/content" )"
 
     # If word count is 0, skip
-    [ ${#this_content} -eq 0 ] && { echo ; echo "Skipping post ID ${post} because there is no content!" ; continue ;}
+    [ ${#this_content_all} -eq 0 ] && { echo ; echo "Skipping post ID ${post} because there is no content!" ; continue ;}
+
+    # Get content to create a snippet from. Try avoid markdown characters
+    local this_content="$( head -n10 "${this_local_dir}/content" | grep -v -E -- '^#|^\[|!|\*|^`' )"
 
     local this_author="$( cat "${this_local_dir}/author" )"
     local this_url="$( cat "${this_local_dir}/url" )"
