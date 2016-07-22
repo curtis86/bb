@@ -18,7 +18,7 @@ TEXT_EDITOR="vim"
 
 ## SITEMAP SETTINGS
 
-# Enable sitemap support (0: off 1:on)
+# Enable sitemap support (0: on 1:off)
 ENABLE_SITEMAP="1"
 
 # Blog URL (eg: https://me.com) - required for sitemap
