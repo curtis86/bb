@@ -24,6 +24,8 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 
 &#x2713; Push-to-many-host publishing
 
+&#x2713; Automation friendly
+
 &#x2713; Sitemap support
 
 
