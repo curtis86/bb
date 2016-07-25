@@ -366,7 +366,7 @@ post::generate() {
   rm -rf "${PUBLIC_POSTS_DIR}" && mkdir "${PUBLIC_POSTS_DIR}"
 
   # Set templates
-  local template_header="$( cat "${TEMPLATES_DIR}/1-header" )"
+  local template_header="$( cat "${TEMPLATES_DIR}/1-header-post" )"
   local template_header="${template_header//__BLOGTITLE__/${BLOG_TITLE}}"
   local template_header="${template_header//__BLOGTHEME__/${BLOG_THEME}}"
 
@@ -479,7 +479,7 @@ post::generate_index() {
   local posts=( $( ls "${LOCAL_DIR}/" | sort -rn ) )
 
   # Set templates
-  local template_header="$( cat "${TEMPLATES_DIR}/1-header" )"
+  local template_header="$( cat "${TEMPLATES_DIR}/1-header-index" )"
   local template_header="${template_header//__BLOGTITLE__/${BLOG_TITLE}}"
   local template_header="${template_header//__BLOGTHEME__/${BLOG_THEME}}"
   local template_header="${template_header//__SUBTITLE__/${BLOG_SUBTITLE}}"

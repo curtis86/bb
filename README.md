@@ -14,6 +14,8 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 
 &#x2713; Markdown syntax
 
+&#x2713; Responsive
+
 &#x2713; Compatible with macOS (OS X) and Linux systems
 
 &#x2713; Low-dependency (system default in many cases)
