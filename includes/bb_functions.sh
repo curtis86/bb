@@ -439,6 +439,7 @@ post::generate() {
 
       local this_tags_sorted="$( echo "${this_tags}" | sort | uniq | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $//g' )"
 
+      echo "" >> "${this_index_file}"
       echo "#### Tags" >> "${this_index_file}"
       echo "${this_tags_sorted}" >> "${this_index_file}"
     fi
