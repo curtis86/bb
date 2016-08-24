@@ -16,7 +16,7 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 
 &#x2713; Responsive
 
-&#x2713; Compatible with macOS (OS X) and Linux systems
+&#x2713; Compatible with macOS (OS X), Linux and even Windows systems
 
 &#x2713; Low-dependency (system default in many cases)
 
@@ -39,7 +39,7 @@ Please see the [Github Wiki](https://github.com/curtis86/bb/wiki/) for detailed 
 
 ## D. Supported Systems
 
-Tested on BASH 3.2 (OS X) and BASH 4.1.2 on CentOS Linux.
+Tested on BASH 3.2 (OS X) and BASH 4.1.2 on CentOS Linux, and even BASH on Windows (that's right!)
 
 ### Installation
 
